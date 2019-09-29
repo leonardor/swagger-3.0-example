@@ -114,7 +114,7 @@
           ],
           "responses": {
             "200": {
-              "$ref": "/swagger/responses.json#/components/responses/DeleteResponse"
+              "$ref": "/swagger/responses/pages.json#/components/responses/PageResponse/200"
             },
             "500": {
               "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"

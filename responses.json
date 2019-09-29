@@ -19,25 +19,6 @@
             }
           }
         }
-      },
-      "DeleteResponse": {
-        "description": "Response returned on item delete",
-        "content": {
-          "application/json": {
-            "description": "Response returned on item delete",
-            "schema": {
-              "$ref": "/swagger/messages.json#/components/schemas/DeleteMessage"
-            },
-            "example": {
-              "DeleteExample": {
-                "status": 200,
-                "message": "The item was deleted successfully",
-                "data": {
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
