@@ -1,0 +1,318 @@
+{
+  "components": {
+    "schemas": {
+      "PageByIdRoute": {
+        "put": {
+          "summary": "Update page information",
+          "description": "Updates the information associated with a page",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Page identifier",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "description": "Page title",
+                      "required": true,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 255
+                    },
+                    "description": {
+                      "description": "Page description",
+                      "required": true,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 16777215
+                    },
+                    "visible": {
+                      "description": "Page visibility",
+                      "required": true,
+                      "type": "integer",
+                      "format": "int32",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    },
+                    "category_id": {
+                      "description": "Page category id",
+                      "required": true,
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "type": {
+                      "description": "Page type",
+                      "required": false,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 255
+                    },
+                    "date": {
+                      "description": "Page publish date",
+                      "required": false,
+                      "type": "date-time"
+                    },
+                    "tags[]": {
+                      "description": "Page tags",
+                      "required": false,
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "encoding" : {
+                  "tags[]" : {
+                    "style" : "form",
+                    "explode" : true
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "page"
+          ],
+          "responses": {
+            "200": {
+              "$ref": "/swagger/responses/pages.json#/components/responses/PageResponse/200"
+            },
+            "500": {
+              "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete page",
+          "description": "Delete the information associated with a page",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Page identifier",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "tags": [
+            "page"
+          ],
+          "responses": {
+            "200": {
+              "$ref": "/swagger/responses.json#/components/responses/DeleteResponse"
+            },
+            "500": {
+              "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"
+            }
+          }
+        },
+        "get": {
+          "summary": "Get page information",
+          "description": "Retrieves the information associated with a page",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Page identifier",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "example": 1
+            }
+          ],
+          "tags": [
+            "page"
+          ],
+          "responses": {
+            "200": {
+              "$ref": "/swagger/responses/pages.json#/components/responses/PageResponse/200"
+            },
+            "500": {
+              "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"
+            }
+          }
+        }
+      },
+      "PagesRoute": {
+        "post": {
+          "summary": "Create page",
+          "description": "Add information associated with a pages",
+          "requestBody": {
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "description": "Page tTitle",
+                      "required": true,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 255
+                    },
+                    "description": {
+                      "description": "Page description",
+                      "required": true,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 16777215
+                    },
+                    "visible": {
+                      "description": "Page visibility",
+                      "required": true,
+                      "type": "integer",
+                      "format": "int32",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    },
+                    "category_id": {
+                      "description": "Page category id",
+                      "required": true,
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "type": {
+                      "description": "Page type",
+                      "required": false,
+                      "type": "string",
+                      "minimum": 1,
+                      "maximum": 255
+                    },
+                    "date": {
+                      "description": "Page publish date",
+                      "required": false,
+                      "type": "date-time"
+                    },
+                    "tags[]": {
+                      "description": "Page tags",
+                      "required": false,
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "encoding" : {
+                  "tags[]" : {
+                    "style" : "form",
+                    "explode" : true
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "page"
+          ],
+          "responses": {
+            "201": {
+              "$ref": "/swagger/responses/pages.json#/components/responses/PagesResponse/201"
+            },
+            "500": {
+              "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"
+            }
+          }
+        },
+        "get": {
+          "summary": "Pages information",
+          "description": "Returns the list of pages",
+          "parameters": [
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "Offset",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 0
+              },
+              "example": 0
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Limit",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 0
+              },
+              "example": 10
+            },
+            {
+              "name": "sort_field",
+              "in": "query",
+              "description": "Sort field",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "default": "id"
+              },
+              "example" : "id"
+            },
+            {
+              "name": "sort_order",
+              "in": "query",
+              "description": "Sort order",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "asc",
+                  "desc"
+                ],
+                "default": "asc"
+              },
+              "example": "asc"
+            },
+            {
+              "name": "category_id",
+              "in": "query",
+              "description": "Category id",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "defalt": 0
+              },
+              "example": 1
+            }
+          ],
+          "tags": [
+            "page"
+          ],
+          "responses": {
+            "200": {
+              "$ref": "/swagger/responses/pages.json#/components/responses/PagesResponse/200"
+            },
+            "500": {
+              "$ref": "/swagger/responses.json#/components/responses/Standard500ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "components": {
+    "responses": {
+      "Standard500ErrorResponse": {
+        "description": "500 Internal Server Error",
+        "content": {
+          "application/json": {
+            "description": "An unexpected error occured",
+            "schema": {
+              "$ref": "/swagger/messages.json#/components/schemas/ErrorMessage"
+            },
+            "example": {
+              "ErrorExample": {
+                "status": 500,
+                "message": "An error occured",
+                "data": {
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeleteResponse": {
+        "description": "Response returned on item delete",
+        "content": {
+          "application/json": {
+            "description": "Response returned on item delete",
+            "schema": {
+              "$ref": "/swagger/messages.json#/components/schemas/DeleteMessage"
+            },
+            "example": {
+              "DeleteExample": {
+                "status": 200,
+                "message": "The item was deleted successfully",
+                "data": {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

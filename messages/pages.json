@@ -1,0 +1,66 @@
+{
+  "components": {
+    "schemas": {
+      "PageMessage": {
+        "type": "object",
+        "title": "PageMessage",
+        "description": "The page message",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The response status"
+          },
+          "message": {
+            "type": "string",
+            "description": "The response message"
+          },
+          "data": {
+            "type": "object",
+            "description": "The response data",
+            "$ref": "/swagger/models/page.json#/components/schemas/PageModel"
+          }
+        }
+      },
+      "PagesMessage": {
+        "type": "object",
+        "title": "PagesMessage",
+        "description": "The pages message",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The response status"
+          },
+          "message": {
+            "type": "string",
+            "description": "The response message"
+          },
+          "data": {
+            "type": "object",
+            "description": "The response data",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The current pages count"
+              },
+              "total": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The total pages count"
+              },
+              "items": {
+                "type": "array",
+                "description": "The pages list",
+                "items": {
+                  "$ref": "/swagger/models/page.json#/components/schemas/PageModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

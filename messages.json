@@ -1,0 +1,26 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorMessage": {
+        "type": "object",
+        "title": "ErrorMessage",
+        "description": "The error message",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "The response status"
+          },
+          "message": {
+            "type": "string",
+            "description": "The response message"
+          },
+          "data": {
+            "type": "object",
+            "description": "The response data",
+            "$ref": "/swagger/models.json#/components/schemas/ErrorModel"
+          }
+        }
+      }
+    }
+  }
+}

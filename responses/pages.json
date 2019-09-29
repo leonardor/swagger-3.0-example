@@ -1,0 +1,133 @@
+{
+  "components": {
+    "responses": {
+      "PageResponse": {
+        "200": {
+          "description": "200 OK",
+          "content": {
+            "application/json": {
+              "title": "Page response",
+              "description": "Page item",
+              "schema": {
+                "$ref": "/swagger/messages/pages.json#/components/schemas/PageMessage"
+              },
+              "example": {
+                "PageExample": {
+                  "status": 200,
+                  "message": "",
+                  "data": {
+                    "id":1,
+                    "title":"My page title",
+                    "description": "My page description",
+                    "visible": true,
+                    "type": "page",
+                    "category": {
+                      "id": 1,
+                      "title": "Category title",
+                      "description": "Category description",
+                      "visible": true,
+                      "type": "category",
+                      "date": "2019-01-01 00:00:00",
+                      "update": "2019-01-01 00:00:00"
+                    },
+                    "tags": [
+                      "page"
+                    ],
+                    "date": "2019-01-01 00:00:00",
+                    "update": "2019-01-01 00:00:00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PagesResponse": {
+        "200": {
+          "description": "200 OK",
+          "content": {
+            "application/json": {
+              "title": "Pages list response",
+              "description": "Page items",
+              "schema": {
+                "$ref": "/swagger/messages/pages.json#/components/schemas/PagesMessage"
+              },
+              "example": {
+                "PagesExample": {
+                  "status": 200,
+                  "message": "",
+                  "data": {
+                    "total": 1,
+                    "count": 1,
+                    "items": [
+                      {
+                        "id":1,
+                        "title":"My page title",
+                        "description": "My page description",
+                        "visible": true,
+                        "type": "page",
+                        "category": {
+                          "id": 1,
+                          "title": "Category title",
+                          "description": "Category description",
+                          "visible": true,
+                          "type": "category",
+                          "date": "2019-01-01 00:00:00",
+                          "update": "2019-01-01 00:00:00"
+                        },
+                        "tags": [
+                          "page"
+                        ],
+                        "date": "2019-01-01 00:00:00",
+                        "update": "2019-01-01 00:00:00"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "201": {
+          "description": "201 Created",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "title": "Page response",
+              "description": "Page item",
+              "schema": {
+                "$ref": "/swagger/messages/pages.json#/components/schemas/PageMessage"
+              },
+              "example": {
+                "PageExample": {
+                  "status": 201,
+                  "message": "",
+                  "data": {
+                    "id":1,
+                    "title":"My page title",
+                    "description": "My page description",
+                    "visible": true,
+                    "type": "page",
+                    "category": {
+                      "id": 1,
+                      "title": "Pages",
+                      "description": "",
+                      "visible": true,
+                      "type": "category",
+                      "date": "2019-01-01 00:00:00",
+                      "update": "2019-01-01 00:00:00"
+                    },
+                    "tags": [
+                      "page"
+                    ],
+                    "date": "2019-01-01 00:00:00",
+                    "update": "2019-01-01 00:00:00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

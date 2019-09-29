@@ -1,0 +1,56 @@
+{
+  "components": {
+    "schemas": {
+      "PageModel": {
+        "type": "object",
+        "title": "PageModel",
+        "description": "The page model",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Page title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Page description"
+          },
+          "type": {
+            "type": "string",
+            "description": "Page type"
+          },
+          "category": {
+            "type": "object",
+            "description": "Page category",
+            "$ref": "/swagger/models/category.json#/components/schemas/CategoryModel"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Page tags",
+            "items": {
+              "type": "string"
+            }
+          },
+          "visible": {
+            "type": "boolean",
+            "description": "Page visibility"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Page publish date"
+          },
+          "update": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Page modified date"
+          }
+        }
+      }
+    }
+  }
+}

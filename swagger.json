@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Demo Application API",
+    "description": "API documentation for Demo Application",
+    "version": "1.0.0",
+    "termsOfService": "http://demo.app",
+    "contact": {
+      "email": "someone@demo.app"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "{protocol}://demo.app:{port}/{basePath}",
+      "description": "server",
+      "variables": {
+        "protocol": {
+          "enum": [
+            "http",
+            "https"
+          ],
+          "default": "http"
+        },
+        "port": {
+          "enum": [
+            "80"
+          ],
+          "default": "80"
+        },
+        "basePath": {
+          "default": "api/"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Demo Application",
+      "description": "Swagger configuration for Demp Application",
+      "externalDocs": {
+        "description": "Find out more about Demo Application",
+        "url": "http://demo.app"
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "description": "Api Key",
+        "name": "X-API-Key",
+        "in": "header"
+      }
+    }
+  },
+  "paths": {
+    "/pages/{id}": {
+      "$ref": "/swagger/routes/pages.json#/components/schemas/PageByIdRoute"
+    },
+    "/page": {
+      "$ref": "/swagger/routes/pages.json#/components/schemas/PagesRoute"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Demo Application API",
+    "url": "http://demo.app"
+  }
+}

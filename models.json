@@ -1,0 +1,13 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorModel": {
+        "type": "object",
+        "title": "ErrorModel",
+        "description": "The error model",
+        "properties": {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+    "components": {
+      "schemas": {
+        "CategoryModel": {
+          "type": "object",
+          "title": "CategoryModel",
+          "description": "The category model",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Category identifier"
+            },
+            "title": {
+              "type": "string",
+              "description": "Category title"
+            },
+            "description": {
+              "type": "string",
+              "description": "Category description"
+            },
+            "type": {
+              "type": "string",
+              "description": "Category type"
+            },
+            "visible": {
+              "type": "boolean",
+              "description": "Category visibility"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Category created date"
+            },
+            "update": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Category modified date"
+            }
+          }
+        }
+      }
+    }
+  }
